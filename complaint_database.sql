@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 21, 2021 at 04:18 PM
+-- Generation Time: Oct 22, 2021 at 12:36 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.3.30
 
@@ -17,6 +17,16 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
+DROP SCHEMA IF EXISTS complaint_database;
+CREATE SCHEMA complaint_database;
+USE complaint_database;
+SET AUTOCOMMIT=0;
+
+--
+-- Table structure for table `city`
+--
+
+DROP TABLE IF EXISTS `registrations`;
 --
 -- Database: `complaint_database`
 --
@@ -46,9 +56,6 @@ CREATE TABLE `registrations` (
 --
 -- Dumping data for table `registrations`
 --
-
-INSERT INTO `registrations` (`id`, `firstname`, `lastname`, `fathername`, `username`, `password`, `rollnumber`, `email`, `mobile`, `dob`, `timestamp`, `state`, `gender`) VALUES
-(1, 'Yash', 'Sharma', 'Vijay Narayan', 'yashcode00', 'e10adc3949ba59abbe56e057f20f883e', 'B20241', 'yashuvats.42@gmail.com', 9564315430, '2023-10-08', '2021-10-21 19:37:29', 'Delhi', 'm');
 
 --
 -- Indexes for dumped tables

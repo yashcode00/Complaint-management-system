@@ -11,7 +11,7 @@
     <link rel="icon"  type="image/png"  href="./images/favicon.png" />
 </head>
 <body>
-    <section class="h-100 bg-dark">
+    <section>
         <div class="container py-5 h-100">
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col">

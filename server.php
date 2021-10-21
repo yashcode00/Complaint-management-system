@@ -1,7 +1,7 @@
 <?php
    session_start();
    
-   //Define valiables
+   //Define variables
    $username = "";
    $email = "";
  
