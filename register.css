@@ -1,0 +1,34 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	/*background image*/
+	background-image: url('./images/bg_image.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+  }
+  .card-registration .select-arrow {
+    top: 13px;
+  }
+  .right-div button:hover{
+    color: rgb(233, 25, 77);
+    font-weight: 400;
+    background-color: white;
+    transition: 0.3s;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+.right-div button{
+    background-color: transparent;
+    border: 2px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+}
