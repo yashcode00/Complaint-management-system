@@ -3,6 +3,11 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+	/*background image*/
+	background-image: url('/images/bg_image.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
 }
 .main-container,.main-row{
     border-radius: 25px;
@@ -95,6 +100,7 @@ button{
 	background-color: blueviolet;
 	
 }
+
 /* 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
