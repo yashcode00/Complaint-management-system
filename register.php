@@ -31,7 +31,7 @@
               
                       <div class="form-outline mb-4 right-div">
                         <div class="login hidden">
-                            <h4>Hello! Already registered? <a href="home.html">
+                            <h4>Hello! Already registered? <a href="home.php">
                             <button class="sign-btn btn">Sign In!</button></a></h4>
                         </div>
 
