@@ -11,15 +11,15 @@
 
    if(isset($_POST['reg_user'])){
 
-    $firstname==$_POST['firstname'];
-    $lastname==$_POST['lastname'];
-    $fathersname==$_POST['fathersname'];
-    $rollnumber==$_POST['rollnumber'];
-    $email==$_POST['email'];
-    $mobile==$_POST['mobile'];
-    $dob==$_POST['dob'];
-    $state==$_POST['state'];
-    $gender==$_POST['gender'];
+    $firstname=$_POST['firstname'];
+    $lastname=$_POST['lastname'];
+    $fathersname=$_POST['fathersname'];
+    $rollnumber=$_POST['rollno'];
+    $email=$_POST['email'];
+    $mobile=$_POST['mobile'];
+    $dob=$_POST['dob'];
+    $state=$_POST['state'];
+    $gender=$_POST['gender'];
 
    	$username = mysqli_real_escape_string($db, $_POST['username']);
    	$email    = mysqli_real_escape_string($db, $_POST['email']);
@@ -64,7 +64,7 @@
    	   if (count($errors) ==0) {
    	   	$password = md5($password_1);  //password encryption
 
-   	   	$query = "INSERT INTO registrations (lastname,firstname,fathername,username,email,password,rollnumber,mobile,dob,state,gender) VALUES('$lastname','$firstname','$fathersname',$username', '$email', '$password','$rollnumber','$mobile','$dob','$state','$gender')";	   
+   	   	$query = "INSERT INTO registrations (lastname,firstname,fathername,username,email,password,rollnumber,mobile,dob,state,gender) VALUES('$lastname','$firstname','$fathersname','$username', '$email', '$password','$rollnumber','$mobile','$dob','$state','$gender')";	   
         mysqli_query($db,$query);
         $_SESSION['username'] = $username;
         $_SESSION['success'] ="You are now logged in";
