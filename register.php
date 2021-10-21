@@ -1,3 +1,4 @@
+<?php include('server.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +19,7 @@
                 <div class="row g-0">
                   <div class="col-xl-6 d-none d-xl-block">
                     <img
-                      src="./images/Indian_Institute_of_Technology_Mandi_Logo.png"
+                      src="./images/register_img.jpg"
                       alt="Sample photo"
                       class="img-fluid"
                       style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;"
@@ -35,17 +36,17 @@
                         </div>
 
 
-                      <form method="post" id="signin" class="visible">
+                      <form method="post" id="signin" class="visible" action="register.php">
                       <div class="row">
                         <div class="col-md-6 mb-4">
                           <div class="form-outline">
-                            <input type="text" id="form3Example1m" class="form-control form-control-lg" required/>
+                            <input type="text" id="form3Example1m" class="form-control form-control-lg" name="firstname"/>
                             <label class="form-label" for="form3Example1m">First name</label>
                           </div>
                         </div>
                         <div class="col-md-6 mb-4">
                           <div class="form-outline">
-                            <input type="text" id="form3Example1n" class="form-control form-control-lg" />
+                            <input type="text" id="form3Example1n" class="form-control form-control-lg" name="lastname"/>
                             <label class="form-label" for="form3Example1n">Last name</label>
                           </div>
                         </div>
@@ -54,37 +55,37 @@
                       <div class="row">
                         <div class="col-md-6 mb-4">
                           <div class="form-outline">
-                            <input type="text" id="form3Example1m1" class="form-control form-control-lg" />
+                            <input type="text" id="form3Example1m1" class="form-control form-control-lg" name="fathersname" />
                             <label class="form-label" for="form3Example1m1">Father's name</label>
                           </div>
                         </div>
                         <div class="col-md-6 mb-4">
                           <div class="form-outline">
-                            <input type="text" id="form3Example1n1" class="form-control form-control-lg" required/>
+                            <input type="text" id="form3Example1n1" class="form-control form-control-lg" name="username" required/>
                             <label class="form-label" for="form3Example1n1">User Name</label>
                           </div>
                         </div>
                       </div>
       
                       <div class="form-outline mb-4">
-                        <input type="text" id="form3Example8" class="form-control form-control-lg" required/>
+                        <input type="password" id="form3Example8" class="form-control form-control-lg" name="password1" required/>
                         <label class="form-label" for="form3Example8">Password</label>
                       </div>
                       <div class="form-outline mb-4">
-                        <input type="text" id="form3Example8" class="form-control form-control-lg" />
+                        <input type="password" id="form3Example8" class="form-control form-control-lg" name="password2" required/>
                         <label class="form-label" for="form3Example8">Confirm Password</label>
                       </div>
                       
                       <div class="row">
                         <div class="col-md-6 mb-4">
                           <div class="form-outline">
-                            <input type="text" id="form3Example1m1" class="form-control form-control-lg" />
+                            <input type="text" id="form3Example1m1" name="rollno" class="form-control form-control-lg" />
                             <label class="form-label" for="form3Example1m1">Roll No.</label>
                           </div>
                         </div>
                         <div class="col-md-6 mb-4">
                           <div class="form-outline">
-                            <input type="text" id="form3Example1n1" class="form-control form-control-lg" />
+                            <input type="text" id="form3Example1n1" name="state" class="form-control form-control-lg" />
                             <label class="form-label" for="form3Example1n1">State</label>
                           </div>
                         </div>
@@ -94,35 +95,17 @@
                         <h6 class="mb-0 me-4">Gender: </h6>
       
                         <div class="form-check form-check-inline mb-0 me-4">
-                          <input
-                            class="form-check-input"
-                            type="radio"
-                            name="inlineRadioOptions"
-                            id="femaleGender"
-                            value="option1"
-                          />
+                          <input class="form-check-input" type="radio" name="gender" id="femaleGender" value="f" />
                           <label class="form-check-label" for="femaleGender">Female</label>
                         </div>
       
                         <div class="form-check form-check-inline mb-0 me-4">
-                          <input
-                            class="form-check-input"
-                            type="radio"
-                            name="inlineRadioOptions"
-                            id="maleGender"
-                            value="option2"
-                          />
+                          <input class="form-check-input" type="radio" name="gender" id="maleGender" value="m" />
                           <label class="form-check-label" for="maleGender">Male</label>
                         </div>
       
                         <div class="form-check form-check-inline mb-0">
-                          <input
-                            class="form-check-input"
-                            type="radio"
-                            name="inlineRadioOptions"
-                            id="otherGender"
-                            value="option3"
-                          />
+                          <input class="form-check-input" type="radio" name="gender" id="otherGender" value="o"/>
                           <label class="form-check-label" for="otherGender">Other</label>
                         </div>
       
@@ -130,26 +113,26 @@
                       <div class="row">
                         <div class="col-md-6 mb-4">
                           <div class="form-outline">
-                            <input type="text" id="form3Example1m1" class="form-control form-control-lg" />
+                            <input type="date" id="form3Example1m1" class="form-control form-control-lg" name="dob" />
                             <label class="form-label" for="form3Example1m1">DOB</label>
                           </div>
                         </div>
                         <div class="col-md-6 mb-4">
                           <div class="form-outline">
-                            <input type="text" id="form3Example1n1" class="form-control form-control-lg" required/>
+                            <input type="number" id="form3Example1n1" class="form-control form-control-lg" name="mobile" required/>
                             <label class="form-label" for="form3Example1n1">Mobile</label>
                           </div>
                         </div>
                       </div>
       
                       <div class="form-outline mb-4">
-                        <input type="text" id="form3Example97" class="form-control form-control-lg" />
+                        <input type="email" id="form3Example97" class="form-control form-control-lg" name="email" />
                         <label class="form-label" for="form3Example97">Email ID</label>
                       </div>
       
                       <div class="d-flex justify-content-end pt-3">
                         <button type="button" class="btn btn-light btn-lg">Reset all</button>
-                        <button type="submit" class="btn btn-warning btn-lg ms-2">Submit form</button>
+                        <button type="submit" class="btn btn-warning btn-lg ms-2" name="reg_user">Submit form</button>
                       </div>
                     </form>
       
