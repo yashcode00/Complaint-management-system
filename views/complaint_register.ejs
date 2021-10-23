@@ -11,7 +11,7 @@
 <body>
         <div class="main-container container-fluid">
             <div class="row main-row">
-                <h1 class="name-heading">Hello <%= user %> !</h1>
+                <h1 class="name-heading">Hello ! <%= user %></h1>
                 <div class="col-12 col-md-6 left-div container-fluid">
                     <div class="image">
                         <img src="images/haha.png" alt="">
@@ -21,13 +21,13 @@
                         <button class="btn btn-primary">Logout</button>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 right-div">      
-                    <form action="" style="color: black;">
+                <div class="col-12 col-md-6 right-div">
+                    <form action="\complaint_register" method='post' style="color: black;">
                         <h2>Register a Complaint</h2>
                         <input type="text" name="rollno" placeholder="Roll-no" class="form-control" required>
                         <div class="options">
                             <label for="category">Type :  </label>
-                            <select id="category" name="complaint-category" class="form-select size-3">
+                            <select id="category" name="complaintcategory" class="form-select size-3">
                                 <option value="Bullying">Bullying</option>
                                 <option value="Hostel">Hostel Realted Issues</option>
                                 <option value="Harrasment">Harrasment</option>

@@ -20,6 +20,7 @@ const registerSchema = new Schema({
   },
   rollno: {
     type: String,
+    unique: true,
   },
   email: {
     type: String,

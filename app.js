@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose=require('mongoose');
 const Register = require('./models/register');
+const Complaint = require('./models/complaint');
 
 // express app
 const app = express();
@@ -40,6 +41,7 @@ app.get('/complaint_register', (req, res) => {
   res.render('complaint_register', { title: 'Complaint' });
 });
 
+// registration page getting setails and storing to server via post method
 app.post('/register', (req, res) => {
   // console.log(req.body);
 try {
@@ -105,6 +107,33 @@ app.post('/login', async(req, res) => {
     console.log(error);
   }
 
+});
+
+
+// registering the complaint of signed in user
+app.post('/complaint_register', async(req, res) => {
+  // console.log(req.body);
+try {
+  const rollnumber=req.body.rollno;
+  const find_user=await Register.findOne({rollno:rollnumber});
+
+  const complaint = new Complaint({
+    username: find_user.username,
+    rollno: rollno ,
+    message: req.body.message,
+    complaintcategory: req.body.complaintcategory}
+  );
+  console.log(find_user.username);
+  console.log('Complaint registered succesfully!');
+  complaint.save().then(result => {
+    res.redirect('/login');
+  })
+  .catch(err => {
+    console.log(err);
+  });
+} catch (error) {
+  res.send(error);
+}
 });
 
 // 404 page
