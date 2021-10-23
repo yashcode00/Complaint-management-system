@@ -1,0 +1,101 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	/*background image*/
+	background-image: url('../images/bg_image.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+.main-container,.main-row{
+    border-radius: 25px;
+    position: relative;
+    top: 5vh;
+    width: 80vw;
+}
+.main-row{
+    box-shadow: 4px 4px 10px 2px grey;
+}
+.left-div,.right-div{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5%;
+    /* justify-content: center; */
+}
+.left-div{
+    background-color: greenyellow;
+    border-radius: 25px 0 0 25px;
+    padding-top: 10%;
+    /* margin-bottom: 20px; */
+}
+.right-div{
+    background-color: rgb(233, 25, 77);
+    border-radius: 0 25px 25px 0;
+    color: white;
+}
+.left-div form{
+    width: 100%;
+    /* height: 80%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    /* justify-content: center; */
+}
+.left-div input{
+    width: 70%;
+    background-color: rgb(235 235 235);
+    color: white;
+    padding-left: 15px;
+    height: 50px;
+    border-radius: 10px;
+}
+button{
+    width:150px;
+    height:50px;
+    font-size: 1.2rem;
+    border-radius: 25px;
+}
+.signin{
+    font-weight: 750;
+    font-size: 2.5rem;
+}
+#forgotpass{
+    font-size: 1rem;
+    margin: 20px;
+}
+.right-div button{
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    font-weight: 700;
+}
+.right-div button:hover{
+    color: rgb(233, 25, 77);
+    font-weight: 400;
+    background-color: white;
+    transition: 0.3s;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+@media (max-width:768px) {
+    .left-div,.right-div{
+        margin-bottom: 15px;
+        border-radius: inherit;
+        box-shadow: 4px 4px 10px 2px grey;
+    }
+    .main-row{
+        box-shadow: none;
+    }
+}
+/* .hidden{
+	display: none !important;} */
+
+.violet{
+	background-color: blueviolet;
+	
+}
