@@ -2,19 +2,41 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const registerSchema = new Schema({
-  title: {
+  firstname: {
     type: String,
-    required: true,
   },
-  snippet: {
+  lastname: {
     type: String,
-    required: true,
   },
-  body: {
+  fathersname: {
     type: String,
-    required: true
   },
-}, { timestamps: true });
+  username: {
+    type: String,
+    unique: true,
+  },
+  password: {
+    type: String,
+  },
+  rollno: {
+    type: String,
+  },
+  email: {
+    type: String,
+  },
+  mobile: {
+    type: Number,
+  },
+  dob: {
+    type: Date,
+  },
+  state: {
+    type: String,
+  },
+  gender: {
+    type: String,
+  }
+}, { timestamps: true },{ collection: 'registers'});
 
 const Register = mongoose.model('Register', registerSchema);
 module.exports = Register;
