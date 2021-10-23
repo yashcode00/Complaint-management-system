@@ -1,0 +1,22 @@
+{
+  "name": "complaint-management-system",
+  "version": "1.0.0",
+  "description": "This is an management application for students to register and login and raise complaints against their problem. The portal contains a form to request necessary details of the complaints and  directs to concerned authorities.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yashcode00/Complaint-management-system.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yashcode00/Complaint-management-system/issues"
+  },
+  "homepage": "https://github.com/yashcode00/Complaint-management-system#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
