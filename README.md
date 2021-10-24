@@ -58,7 +58,7 @@ Check again whether execution policy changed by running this command
     Get-ExecutionPolicy
 ```
 
-** You should get 'Unrestricted'**
+**You should get 'Unrestricted'**
 
 Now try to run nodemon on your project
 
