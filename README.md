@@ -36,23 +36,34 @@ localhost:3000
 A possible error may occur if you are running nodejs for first time on yor PC.
 
 For those who are not aware of how to solve this error using Windows PowerShell
+
 Open PowerShell (Run As Administrator)
+
 Check the current execution policy using this command
+
     ```
     Get-ExecutionPolicy
     ```
 **You should get 'Restricted'**
+
 Run this command to make it 'Unrestricted'
+
 ```
     Set-ExecutionPolicy Unrestricted
 ```
+
 Check again whether execution policy changed by running this command
+
 ```
     Get-ExecutionPolicy
 ```
+
 ** You should get 'Unrestricted'**
+
 Now try to run nodemon on your project
+
 ```
     nodemon app
 ```
+
 Now, it will work perfectly. :)
