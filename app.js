@@ -3,6 +3,7 @@ const mongoose=require('mongoose');
 const Register = require('./models/register');
 const Complaint = require('./models/complaint');
 const bcrypt = require("bcrypt"); // for password hashing
+const nodemailer = require("nodemailer");
 
 // express app
 const app = express();
@@ -26,6 +27,16 @@ app.use(express.urlencoded({ extended: true }));
 app.set('views', './views');
 app.set('view engine', 'ejs');
 
+// Mail function
+let fromMail = 'group3.adp@gmail.com';
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+      user: fromMail ,
+      pass: 'Group3#ADP'
+  }
+  });
+
 app.get('/', (req, res) => {
   res.redirect('/login');
 });
@@ -41,6 +52,29 @@ app.get('/register', (req, res) => {
 app.get('/complaint_register', (req, res) => {
   res.render('complaint_register', { title: 'Complaint' });
 });
+
+app.post('/forgetpassword', (req, res) => {
+  res.render("forget");
+});
+
+app.post('/otppage', async(req, res) => {
+  let find_user=await Register.findOne({rollno:req.body.rollno});
+  let otp = Math.floor(1000 + Math.random() * 9000);
+
+  transporter.sendMail({
+    from:fromMail,
+    to:find_user.email,
+    subject: "OTP",
+    text: "OTP is "+ otp
+  }, (error, response) => {
+    if (error) {
+        console.log(error);
+    }
+    });
+  res.render("otppage");
+});
+
+
 
 // registration page getting setails and storing to server via post method
 app.post('/register', async(req, res) => {
