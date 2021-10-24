@@ -22,15 +22,23 @@ git clone git@github.com:yashcode00/Complaint-management-system.git
 ```
 npm install
 ```
-**Step 4** :  Now, finally to run this website locally on your local host run the following command.
+
+**Step 4**:   Now, run the follwing to install nodemon globally.
+```
+npm install -g nodemon
+```
+
+**Step 5** :  Now, finally to run this website locally on your local host run the following command.
 ```
 nodemon app
 ```
-**Step 5**:   Finally, to open this hosted website, type following url in chrome browser (preferred for best experience).
+
+**Step 6**:   Finally, to open this hosted website, type following url in chrome browser (preferred for best experience).
 ```
 localhost:3000
 ```
-**Step 6**:   This way you will be directed to the login page of this comaplint-management-website and hence we succefully executed this project :)
+
+**Step 7**:   This way you will be directed to the login page of this comaplint-management-website and hence we succefully executed this project :)
 
 # Possible Error
 A possible error may occur if you are running nodejs for first time on yor PC.
