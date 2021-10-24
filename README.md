@@ -16,29 +16,33 @@ This is an management application for students to register and login and raise c
 ```
 git clone git@github.com:yashcode00/Complaint-management-system.git
 ```
-**Step 2** :  Open this cloned folder having name: "Complaint-management-system" using Visual Studio Code (preferably for best experience) 
+**Step 2 :** : Change the branch to node_new using the following command:
+```
+git branch node_new
+```
+**Step 3** :  Open this cloned folder having name: "Complaint-management-system" using Visual Studio Code (preferably for best experience) 
 
 **Step 3** :  Run a new terminal in VS Code and run the following command. This will install all required modules for running this project. 
 ```
 npm install
 ```
 
-**Step 4**:   Now, run the follwing to install nodemon globally.
+**Step 5**:   Now, run the follwing to install nodemon globally.
 ```
 npm install -g nodemon
 ```
 
-**Step 5** :  Now, finally to run this website locally on your local host run the following command.
+**Step 6** :  Now, finally to run this website locally on your local host run the following command.
 ```
 nodemon app
 ```
 
-**Step 6**:   Finally, to open this hosted website, type following url in chrome browser (preferred for best experience).
+**Step 7**:   Finally, to open this hosted website, type following url in chrome browser (preferred for best experience).
 ```
 localhost:3000
 ```
 
-**Step 7**:   This way you will be directed to the login page of this comaplint-management-website and hence we succefully executed this project :)
+**Step 8**:   This way you will be directed to the login page of this comaplint-management-website and hence we succefully executed this project :)
 
 # Possible Error
 A possible error may occur if you are running nodejs for first time on yor PC.
