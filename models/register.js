@@ -13,17 +13,18 @@ const registerSchema = new Schema({
   },
   username: {
     type: String,
-    unique: true,
+    unique: true
   },
   password: {
     type: String,
   },
   rollno: {
     type: String,
-    unique: true,
+    unique: true
   },
   email: {
     type: String,
+    unique: true
   },
   mobile: {
     type: Number,

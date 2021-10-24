@@ -14,7 +14,7 @@ const registerSchema = new Schema({
   complaintcategory: {
       type: String,
   }
-}, { timestamps: true },{ collection: 'complaints'});
+}, { timestamps: true });
 
 const Complaint = mongoose.model('Complaint', registerSchema);
 module.exports = Complaint;
