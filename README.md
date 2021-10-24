@@ -18,7 +18,7 @@ git clone git@github.com:yashcode00/Complaint-management-system.git
 ```
 **Step 2 :**  Change the branch to node_new using the following command:
 ```
-git branch node_new
+git checkout node_new
 ```
 **Step 3** :  Open this cloned folder having name: "Complaint-management-system" using Visual Studio Code (preferably for best experience) 
 
