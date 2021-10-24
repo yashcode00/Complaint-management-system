@@ -17,6 +17,7 @@ This is an management application for students to register and login and raise c
 git clone git@github.com:yashcode00/Complaint-management-system.git
 ```
 **Step 2**   Open this cloned folder having name: "Complaint-management-system" using Visual Studio Code (preferably for best experience) 
+
 **Step 3**   Run a new terminal in VS Code and run the following command. This will install all required modules for running this project. 
 ```
 npm install
