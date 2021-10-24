@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose=require('mongoose');
 const Register = require('./models/register');
 const Complaint = require('./models/complaint');
+const bcrypt = require("bcrypt"); // for password hashing
 
 // express app
 const app = express();
@@ -42,18 +43,22 @@ app.get('/complaint_register', (req, res) => {
 });
 
 // registration page getting setails and storing to server via post method
-app.post('/register', (req, res) => {
+app.post('/register', async(req, res) => {
   // console.log(req.body);
 try {
   const password1=req.body.password1;
   const password2=req.body.password2;
   if (password1 ===password2){
+    // generate salt to hash password
+    const salt = await bcrypt.genSalt(10);
+    const pass=await bcrypt.hash(req.body.password1, salt);
   const register = new Register({
     firstname: req.body.firstname,
     lastname: req.body.lastname,
     fathersname: req.body.fathersname,
     username: req.body.username,
-    password: req.body.password1,
+    // now we set user password to hashed password
+    password :pass,
     rollno: req.body.rollno ,
     email: req.body.email,
     mobile: req.body.mobile,
@@ -90,7 +95,10 @@ app.post('/login', async(req, res) => {
     const password=req.body.password;
 
     const find_user=await Register.findOne({username:userid});
-    if(find_user.password===password)
+    // check user password with hashed password stored in the database
+    const validPassword = await bcrypt.compare(password, find_user.password);
+    console.log(validPassword);
+    if(validPassword)
     {
       // redirect to complaint regitration page
       res.render('complaint_register', { user: find_user.firstname ,title:"Complaint"});
@@ -119,7 +127,7 @@ try {
 
   const complaint = new Complaint({
     username: find_user.username,
-    rollno: rollno ,
+    rollno: rollnumber ,
     message: req.body.message,
     complaintcategory: req.body.complaintcategory}
   );
