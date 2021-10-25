@@ -42,7 +42,7 @@ app.get('/', (req, res) => {
   res.redirect('/login');
 });
 app.get('/login', (req, res) => {
-  res.render('login', { title: 'Login'});
+  res.render('login', { title: 'Login',message: req.flash('message')});
 });
 
 app.get('/register', (req, res) => {
@@ -105,15 +105,20 @@ app.post('/login', async(req, res) => {
   {
     const userid=req.body.userid;
     const password=req.body.password;
-
+    if((req.body.userid).length==0||(req.body.password).length==0)
+    {
+        req.flash('message',"Invalid username or password!");
+        res.redirect('/login');
+    }
+    else {
     const find_user=await Register.findOne({username:userid});
     // check user password with hashed password stored in the database
     const validPassword = await bcrypt.compare(password, find_user.password);
     console.log(validPassword);
     if(validPassword)
     {
-      res.cookie(`roll_cookie`,find_user.rollno);
-      res.cookie('user',find_user.firstname);
+      res.cookie(`roll_cookie`,find_user.rollno,{maxAge: 1000*60*10});
+      res.cookie('user',find_user.firstname,{maxAge: 1000*60*10});
       req.flash('message','Login succesfully!');
       // redirect to complaint regitration page
       res.redirect('/complaint_register');
@@ -121,12 +126,14 @@ app.post('/login', async(req, res) => {
     }
     else
     {
-      res.send("Invalid username or password!");
-    }
+      req.flash('message',"Invalid username or password!");
+      res.redirect('/login');
+    }}
 
   } catch(error)
   {
-    res.send("Invalid username or password!");
+    req.flash('message',"Invalid username or password!");
+    res.redirect('/login');
     console.log(error);
   }
 
@@ -137,6 +144,12 @@ app.post('/login', async(req, res) => {
 app.post('/complaint_register', async(req, res) => {
   // console.log(req.body);
   var rollnumber=req.body.rollno;
+  if(req.cookies.roll_cookie==null)
+  {
+    console.log("Session expired!");
+    req.flash('message',"Session expired!");
+    res.redirect('/login');
+  }
 try {
   const find_user=await Register.findOne({rollno:req.cookies.roll_cookie});
 
