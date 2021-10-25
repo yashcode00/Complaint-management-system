@@ -129,7 +129,7 @@ app.post('/login', async(req, res) => {
       req.flash('message','Login succesfully!');
       // redirect to complaint regitration page
       res.redirect('/complaint_register');
-      console.log("User succesfully logged in!");
+      console.log("User successfully logged in!");
     }
     else
     {
@@ -174,9 +174,9 @@ try {
     complaintcategory: req.body.complaintcategory}
   );
   console.log(find_user.username);
-  req.flash('message','Complaint registered succesfully!');
   console.log('Complaint registered succesfully!');
   complaint.save().then(result => {
+    req.flash('message','Complaint registered succesfully!');
     res.redirect('/complaint_register');
   })
   .catch(err => {
