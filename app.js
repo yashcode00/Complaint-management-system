@@ -5,6 +5,7 @@ const Complaint = require('./models/complaint');
 const bcrypt = require("bcrypt"); // for password hashing
 var session=require('express-session');
 var flush=require("connect-flash");
+const cookieParser = require('cookie-parser')
 
 // express app
 const app = express();
@@ -30,6 +31,8 @@ app.use(session({
   saveUninitialized:false
 }));
 app.use(flush());
+// let’s you use the cookieParser in application
+app.use(cookieParser());
 
 // register view engine
 app.set('views', './views');
@@ -48,8 +51,7 @@ app.get('/register', (req, res) => {
 
 // redirects
 app.get('/complaint_register', (req, res) => {
-  console.log("I am here");
-  res.render('complaint_register', { title: 'Complaint' ,message: req.flash('message'),user:req.flash('user')});
+  res.render('complaint_register', { title: 'Complaint' ,message: req.flash('message'),user:req.cookies.user});
 });
 
 // registration page getting setails and storing to server via post method
@@ -110,8 +112,8 @@ app.post('/login', async(req, res) => {
     console.log(validPassword);
     if(validPassword)
     {
+      res.cookie(`user`,find_user.firstname);
       req.flash('message','Login succesfully!');
-      req.flash('user',find_user.firstname);
       // redirect to complaint regitration page
       res.redirect('/complaint_register');
       console.log("User succesfully logged in!");
@@ -133,30 +135,37 @@ app.post('/login', async(req, res) => {
 // registering the complaint of signed in user
 app.post('/complaint_register', async(req, res) => {
   // console.log(req.body);
+  var rollnumber=req.body.rollno;
 try {
-  const rollnumber=req.body.rollno;
-  const find_user=await Register.findOne({rollno:rollnumber});
+  const find_user=await Register.findOne({firstname:req.cookies.user});
 
+  if(find_user.rollno!=rollnumber)
+  {
+    console.log("Please provide valid RollNo!");
+    req.flash('message',"Please provide valid RollNo!");
+    res.redirect('/complaint_register');
+  }
+  else{
   const complaint = new Complaint({
     username: find_user.username,
-    rollno: rollnumber ,
+    rollno: find_user.rollno ,
     message: req.body.message,
     complaintcategory: req.body.complaintcategory}
   );
   console.log(find_user.username);
   req.flash('message','Complaint registered succesfully!');
-  req.flash('user',find_user.firstname);
   console.log('Complaint registered succesfully!');
   complaint.save().then(result => {
     res.redirect('/complaint_register');
   })
   .catch(err => {
     console.log(err);
-  });
+  });}
 } catch (error) {
   res.send(error);
 }
-});
+}
+);
 
 // 404 page
 app.use((req, res) => {
