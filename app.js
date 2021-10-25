@@ -112,7 +112,8 @@ app.post('/login', async(req, res) => {
     console.log(validPassword);
     if(validPassword)
     {
-      res.cookie(`user`,find_user.firstname);
+      res.cookie(`roll_cookie`,find_user.rollno);
+      res.cookie('user',find_user.firstname);
       req.flash('message','Login succesfully!');
       // redirect to complaint regitration page
       res.redirect('/complaint_register');
@@ -137,7 +138,7 @@ app.post('/complaint_register', async(req, res) => {
   // console.log(req.body);
   var rollnumber=req.body.rollno;
 try {
-  const find_user=await Register.findOne({firstname:req.cookies.user});
+  const find_user=await Register.findOne({rollno:req.cookies.roll_cookie});
 
   if(find_user.rollno!=rollnumber)
   {
