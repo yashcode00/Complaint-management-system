@@ -3,6 +3,8 @@ const mongoose=require('mongoose');
 const Register = require('./models/register');
 const Complaint = require('./models/complaint');
 const bcrypt = require("bcrypt"); // for password hashing
+var session=require('express-session');
+var flush=require("connect-flash");
 
 // express app
 const app = express();
@@ -21,6 +23,13 @@ mongoose.connect(dburl, { useNewUrlParser: true, useUnifiedTopology: true })
 // Static Files
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
+app.use(session({
+  secret: 'secret',
+  cookie: {maxAge: 60000},
+  resave: false,
+  saveUninitialized:false
+}));
+app.use(flush());
 
 // register view engine
 app.set('views', './views');
@@ -39,7 +48,8 @@ app.get('/register', (req, res) => {
 
 // redirects
 app.get('/complaint_register', (req, res) => {
-  res.render('complaint_register', { title: 'Complaint' });
+  console.log("I am here");
+  res.render('complaint_register', { title: 'Complaint' ,message: req.flash('message'),user:req.flash('user')});
 });
 
 // registration page getting setails and storing to server via post method
@@ -100,8 +110,10 @@ app.post('/login', async(req, res) => {
     console.log(validPassword);
     if(validPassword)
     {
+      req.flash('message','Login succesfully!');
+      req.flash('user',find_user.firstname);
       // redirect to complaint regitration page
-      res.render('complaint_register', { user: find_user.firstname ,title:"Complaint"});
+      res.redirect('/complaint_register');
       console.log("User succesfully logged in!");
     }
     else
@@ -132,9 +144,11 @@ try {
     complaintcategory: req.body.complaintcategory}
   );
   console.log(find_user.username);
+  req.flash('message','Complaint registered succesfully!');
+  req.flash('user',find_user.firstname);
   console.log('Complaint registered succesfully!');
   complaint.save().then(result => {
-    res.redirect('/login');
+    res.redirect('/complaint_register');
   })
   .catch(err => {
     console.log(err);

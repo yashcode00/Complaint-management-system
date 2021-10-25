@@ -22,6 +22,9 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-6 right-div">
+                    <%if(message.length>0 && message!='undefined') {%>
+                    <div class='alert alert-success'><%= message%></div>
+                    <%}%>
                     <form action="\complaint_register" method='post' style="color: black;">
                         <h2>Register a Complaint</h2>
                         <input type="text" name="rollno" placeholder="Roll-no" class="form-control" required>
