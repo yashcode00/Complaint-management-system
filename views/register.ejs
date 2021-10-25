@@ -33,7 +33,9 @@
                             <h4>Hello! Already registered? <a href="login">
                             <button class="sign-btn btn">Sign In!</button></a></h4>
                         </div>
-
+                        <%if(message.length>0 && message!='undefined') {%>
+                          <div class='alert alert-danger'><%= message%></div>
+                          <%}%>
 
                       <form method="post" id="signin" class="visible" action="/register" >
                       <div class="row">

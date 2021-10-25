@@ -44,9 +44,13 @@ app.get('/', (req, res) => {
 app.get('/login', (req, res) => {
   res.render('login', { title: 'Login',message: req.flash('message')});
 });
+app.get('/logout', (req, res) => {
+  req.flash('message','User logged out successfully!');
+  res.redirect('/login');
+});
 
 app.get('/register', (req, res) => {
-  res.render('register', { title: 'Sign up' });
+  res.render('register', { title: 'Sign up' ,message: req.flash('message')});
 });
 
 // redirects
@@ -79,22 +83,25 @@ try {
     gender: req.body.gender
   });
   register.save().then(result => {
+    req.flash('message','User created succesfully!');
     res.redirect('/login');
-  })
-  .catch(err => {
-    console.log(err);
+  }).catch(err => {
+    // console.log(err);
+    if (err.code === 11000) {
+      // duplicate key
+      console.log("Here");
+      req.flash('message','Username/Rollno already in use');
+      res.redirect('/register');
+    }
   });
-  console.log('User created succesfully!');
 }
-  else{
-    res.send("Passwords do not match!")
+  else if(password1 !=password2){
+    req.flash('message',"Passwords do not match!");
+    res.redirect('/register');
   }
-}  catch (error) {
-  if (error.code === 11000) {
-    // duplicate key
-    return res.json({ status: 'error', error: 'Username already in use' })
-  }
-  throw error
+} catch (error) {
+  console.log("Here");
+  console.log(error);
 }
 });
 
