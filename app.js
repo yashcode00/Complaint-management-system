@@ -64,7 +64,8 @@ app.get('/past_complaints', function (req, res) {
             console.log(err);
         } else {
           // console.log(details);
-            res.render("past_complaints", { title: 'History',allDetails: details })
+          req.flash('message','Any problems? We may help!');
+          res.render("past_complaints", { title: 'History',allDetails: details })
         }
     })
     });
