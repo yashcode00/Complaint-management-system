@@ -154,7 +154,7 @@ app.post('/complaint_register', async(req, res) => {
   if(req.cookies.roll_cookie==null)
   {
     console.log("Session expired!");
-    req.flash('message',"Session expired!");
+    req.flash('message',"Your session has expired. Please log in again.");
     res.redirect('/login');
   }
 try {
