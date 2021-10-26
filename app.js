@@ -10,10 +10,15 @@ const cookieParser = require('cookie-parser')
 // express app
 const app = express();
 
+var server_port = process.env.YOUR_PORT || process.env.PORT || 3000;
+var server_host = process.env.YOUR_HOST || '0.0.0.0';
+
 // connect to mongodb
 const dburl='mongodb+srv://yash-mongodb:test123@complaint-database.erdlm.mongodb.net/db1?retryWrites=true&w=majority';
 mongoose.connect(dburl, { useNewUrlParser: true, useUnifiedTopology: true })
-.then(result => app.listen(3000))
+.then(result => app.listen(server_port, server_host, function() {
+  console.log('Listening on port %d', server_port);
+}))
 .catch(err => console.log(err));
 
 // // listen for requests is commented because we cannot perform until database is connected
