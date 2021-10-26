@@ -53,6 +53,17 @@ app.get('/register', (req, res) => {
   res.render('register', { title: 'Sign up' ,message: req.flash('message')});
 });
 
+app.get('/past_complaints', function (req, res) {   
+    Complaint.find({rollno:req.cookies.roll_cookie}, function (err, details) {
+        if (err) {
+            console.log(err);
+        } else {
+          // console.log(details);
+            res.render("past_complaints", { title: 'History',allDetails: details })
+        }
+    })
+    });
+
 // redirects
 app.get('/complaint_register', (req, res) => {
   res.render('complaint_register', { title: 'Complaint' ,message: req.flash('message'),user:req.cookies.user});

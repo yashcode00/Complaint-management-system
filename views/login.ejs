@@ -16,7 +16,7 @@
                 <form method="post" id="signin" class="visible" action="/login">
                     <h1 class="signin">Sign in</h1>
                     <%if(message.length>0 && message!='undefined') {%>
-                        <div class='alert alert-danger'><%= message%></div>
+                        <div class='alert alert-info'><%= message%></div>
                         <%}%>
                     <input type="text" name="userid" placeholder="USER-ID" class="form-control">
                     <br>

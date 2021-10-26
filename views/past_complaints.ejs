@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>System | <%= title %> </title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<link rel="icon" type="image/png" href="images/favicon.png"/>
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+	<link rel="stylesheet" type="text/css" href="css/past_complaint_main.css">
+	<link rel="stylesheet" type="text/css" href="css/past_complaint_util.css">
+</head>
+<body>
+	<div class="limiter">
+		<form action="\complaint_register" method='post'>
+			<button class="btn btn-primary">Back</button>
+		 </form>
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100">
+					<table>
+						<thead>
+							<tr class="table100-head">
+								<th class="column1">S.No.</th>
+								<th class="column2">Timestamp</th>
+								<th class="column3">Username</th>
+								<th class="column4">Roll No</th>
+								<th class="column5">Complaint Category</th>
+								<th class="column6">Complaint</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% for(var i=0; i < allDetails.length; i++) { %>
+								<tr>
+									<td class="column1"><%=i+1 %></td>
+									<td class="column2"><%= allDetails[i].createdAt %></td>
+									<td class="column3"><%= allDetails[i].username %></td>
+									<td class="column4"><%=allDetails[i].rollno %> </td>
+									<td class="column5"><%=allDetails[i].complaintcategory %></td>
+									<td class="column6"><%=allDetails[i].message %></td>
+								</tr>
+							 <% } %>
+								
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendor/select2/select2.min.js"></script>
+	<script src="js/past_complaint.js"></script>
+
+</body>
+</html>
