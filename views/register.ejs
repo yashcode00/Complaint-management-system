@@ -67,9 +67,19 @@
                       </div>
       
                       <div class="form-outline mb-4">
-                        <input type="password" id="form3Example8" class="form-control form-control-lg" name="password1" required/>
+                        <input type="password" id="form3Example8" class="form-control form-control-lg" onclick="abc()" onkeyup="xyz()" name="password1" required/>
                         <label class="form-label" for="form3Example8">Password</label>
                       </div>
+                      <div id = "box2">
+                        <div id = bl><h5>Password must contain the following:</h5></div>
+                        <ul style = "list-style: none;">
+                            <li class = "red" id="lower">A lowercase letter</li>    
+                            <li class = "red" id="upper">A uppercase letter</li>
+                            <li class = "red" id="number">A number</li>
+                            <li class = "red" id="character">Minimum 8 characters</li>
+                        </ul>
+                    </div>
+            
                       <div class="form-outline mb-4">
                         <input type="password" id="form3Example8" class="form-control form-control-lg" name="password2" required/>
                         <label class="form-label" for="form3Example8">Confirm Password</label>
@@ -143,6 +153,27 @@
           </div>
         </div>
       </section>
+
+      <script>
+            var a=document.getElementById("form3Example8");
+    var lowerCaseLetters = /[a-z]/g;
+    var upperCaseLetters = /[A-Z]/g;
+    var numbers = /[0-9]/g;
+
+    function abc(){
+        document.getElementById("box2").style.opacity= 1;
+    }
+    function xyz(){
+        if(a.value.match(lowerCaseLetters)){document.getElementById("lower").style.color="green";}
+        if(a.value.match(upperCaseLetters)){document.getElementById("upper").style.color="green";}
+        if(a.value.match(numbers)){document.getElementById("number").style.color="green";}
+        if(a.value.length>=8){document.getElementById("character").style.color="green";}
+        if(!a.value.match(lowerCaseLetters)){document.getElementById("lower").style.color="red";}
+        if(!a.value.match(upperCaseLetters)){document.getElementById("upper").style.color="red";}
+        if(!a.value.match(numbers)){document.getElementById("number").style.color="red";}
+        if(a.value.length<8){document.getElementById("character").style.color="red";}
+    }
+      </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="js/login.js"></script>
