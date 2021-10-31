@@ -3,9 +3,10 @@ const mongoose=require('mongoose');
 const Register = require('./models/register');
 const Complaint = require('./models/complaint');
 const bcrypt = require("bcrypt"); // for password hashing
+const nodemailer=require("nodemailer");
 var session=require('express-session');
 var flush=require("connect-flash");
-const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
 
 // express app
 const app = express();
@@ -43,6 +44,16 @@ app.use(cookieParser());
 app.set('views', './views');
 app.set('view engine', 'ejs');
 
+// Mail function
+let fromMail = 'group3.adp@gmail.com';
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+      user: fromMail ,
+      pass: 'Group3#ADP'
+  }
+  });
+
 app.get('/', (req, res) => {
   res.redirect('/login');
 });
@@ -74,6 +85,37 @@ app.get('/past_complaints', function (req, res) {
 app.get('/complaint_register', (req, res) => {
   res.render('complaint_register', { title: 'Complaint' ,message: req.flash('message'),user:req.cookies.user});
 });
+
+app.post('/forgetpassword', (req, res) => {
+  res.render("forget");
+});
+
+app.post('/otppage', async(req, res) => {
+  let find_user=await Register.findOne({rollno:req.body.rollno});
+  let otp = Math.floor(1000 + Math.random() * 9000);
+  var otpcopy = otp
+  transporter.sendMail({
+    from:fromMail,
+    to:find_user.email,
+    subject: "OTP",
+    text: "OTP is "+ otp
+  }, (error, response) => {
+    if (error) {
+        console.log(error);
+    }
+    });
+  res.render('otppage', {otpvalue: 'nottrue',otp:otp,rollno:req.body.rollno });
+});
+
+app.post('/otpcheck', (req, res) => {
+  if(req.body.OTP==req.body.otpactual){
+    return res.render('otppage',{otpvalue:'true',otp:req.body.otpactual})
+  }
+  else{
+    return res.render('otppage',{otpvalue:'false',otp:req.body.otpactual})
+  }
+});
+
 
 // registration page getting setails and storing to server via post method
 app.post('/register', async(req, res) => {
