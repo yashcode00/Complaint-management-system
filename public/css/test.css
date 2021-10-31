@@ -21,3 +21,7 @@ body{
     padding: 10px;
     box-shadow: 0px 0px 5px 2px gray ;
 }
+.message{
+    background-color: rgb(212, 235, 235);
+    margin-top: 50px;
+}

@@ -60,7 +60,7 @@ app.post('/forgetpassword', (req, res) => {
 app.post('/otppage', async(req, res) => {
   let find_user=await Register.findOne({rollno:req.body.rollno});
   let otp = Math.floor(1000 + Math.random() * 9000);
-
+  var otpcopy = otp
   transporter.sendMail({
     from:fromMail,
     to:find_user.email,
@@ -71,9 +71,17 @@ app.post('/otppage', async(req, res) => {
         console.log(error);
     }
     });
-  res.render("otppage");
+  res.render('otppage', {otpvalue: 'nottrue',otp:otp,rollno:req.body.rollno });
 });
 
+app.post('/otpcheck', (req, res) => {
+  if(req.body.OTP==req.body.otpactual){
+    return res.render('otppage',{otpvalue:'true',otp:req.body.otpactual})
+  }
+  else{
+    return res.render('otppage',{otpvalue:'false',otp:req.body.otpactual})
+  }
+});
 
 
 // registration page getting setails and storing to server via post method
