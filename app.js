@@ -60,6 +60,15 @@ app.get('/', (req, res) => {
 app.get('/login', (req, res) => {
   res.render('login', { title: 'Login',message: req.flash('message')});
 });
+
+app.get('/otppage', (req, res) => {
+  res.render('otppage', { title: 'Verify',message: req.flash('message')});
+});
+
+app.get('/new_password', (req, res) => {
+  res.render('new_password', { title: 'New Password',message: req.flash('message')});
+});
+
 app.get('/logout', (req, res) => {
   req.flash('message','User logged out successfully!');
   res.redirect('/login');
@@ -67,6 +76,10 @@ app.get('/logout', (req, res) => {
 
 app.get('/register', (req, res) => {
   res.render('register', { title: 'Sign up' ,message: req.flash('message')});
+});
+
+app.get('/forget', (req, res) => {
+  res.render('forget', { title: 'Forget Password' ,message: req.flash('message')});
 });
 
 app.get('/past_complaints', function (req, res) {   
@@ -86,35 +99,91 @@ app.get('/complaint_register', (req, res) => {
   res.render('complaint_register', { title: 'Complaint' ,message: req.flash('message'),user:req.cookies.user});
 });
 
-app.post('/forgetpassword', (req, res) => {
-  res.render("forget");
-});
-
-app.post('/otppage', async(req, res) => {
-  let find_user=await Register.findOne({rollno:req.body.rollno});
-  let otp = Math.floor(1000 + Math.random() * 9000);
-  var otpcopy = otp
-  transporter.sendMail({
-    from:fromMail,
-    to:find_user.email,
-    subject: "OTP",
-    text: "OTP is "+ otp
-  }, (error, response) => {
-    if (error) {
-        console.log(error);
+app.post("/forget", async(req, res) => {
+  try
+  {
+    const roll=req.body.rollno;
+    if((req.body.rollno).length==0)
+    {
+        req.flash('message',"Invalid RollNo!");
+        res.redirect('/forget');
     }
-    });
-  res.render('otppage', {otpvalue: 'nottrue',otp:otp,rollno:req.body.rollno });
+    else {
+    const find_user=await Register.findOne({rollno:roll});
+    if(find_user.rollno!=null)
+    {
+      // req.flash('message','Login succesfully!');
+      // redirect to complaint regitration page
+      res.cookie(`forget_user`,roll,{maxAge: 1000*60*10});
+      let otp = Math.floor(1000 + Math.random() * 9000);
+      var otpcopy = otp
+      transporter.sendMail({
+        from:fromMail,
+        to:find_user.email,
+        subject: "OTP",
+        text: "OTP is "+ otp
+        }, (error, response) => {
+      if (error) {
+          console.log(error);
+      }
+        });
+      res.cookie(`otp`,otp,{maxAge: 1000*60*10});
+      console.log("OTP sent!");
+      res.redirect('/otppage');
+    }
+    else
+    {
+      req.flash('message',"Invalid RollNo!");
+      res.redirect('/forget');
+    }}
+
+  } catch(error)
+  {
+    req.flash('message',"Invalid RollNo!");
+    res.redirect('/forget');
+    console.log(error);
+  }
 });
 
-app.post('/otpcheck', (req, res) => {
-  if(req.body.OTP==req.body.otpactual){
-    return res.render('otppage',{otpvalue:'true',otp:req.body.otpactual})
+app.post('/otppage', (req, res) => {
+  if(req.body.OTP==req.cookies.otp){
+    req.flash('message','Right OTP!');
+    res.redirect('/new_password');
   }
   else{
-    return res.render('otppage',{otpvalue:'false',otp:req.body.otpactual})
+    req.flash('message','Invalid/Wrong OTP!');
+    res.redirect('/otppage');
   }
 });
+
+app.post('/new_password', async(req, res) => {
+  try {
+    const password1=req.body.password1;
+    const password2=req.body.password2;
+    if (password1 ===password2){
+      // generate salt to hash password
+      const salt = await bcrypt.genSalt(10);
+      const pass=await bcrypt.hash(req.body.password1, salt);
+      var query = {rollno:req.cookies.forget_user};
+      
+      Register.findOneAndUpdate(query,{password:pass}, function(err, doc) {
+          if (err) console.log(err);
+      });
+    console.log("Password Updated Succesfully!");
+    req.flash('message',"Password Updated Succesfully!");
+    res.redirect('/login');
+
+  }
+    else if(password1 !=password2){
+      req.flash('message',"Passwords do not match!");
+      res.redirect('/new_password');
+    }
+  } catch (error) {
+    console.log("Here in new password");
+    console.log(error);
+  }
+});
+
 
 
 // registration page getting setails and storing to server via post method
