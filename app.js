@@ -71,6 +71,13 @@ app.get('/new_password', (req, res) => {
 
 app.get('/logout', (req, res) => {
   req.flash('message','User logged out successfully!');
+  cookie = req.cookies;
+  for (var prop in cookie) {
+      if (!cookie.hasOwnProperty(prop)) {
+          continue;
+      }    
+      res.cookie(prop, '', {expires: new Date(0)});
+  }
   res.redirect('/login');
 });
 
@@ -96,8 +103,14 @@ app.get('/past_complaints', function (req, res) {
 
 // redirects
 app.get('/complaint_register', (req, res) => {
+  if(req.cookies.roll_cookie!=null){
   res.render('complaint_register', { title: 'Complaint' ,message: req.flash('message'),user:req.cookies.user});
-});
+}
+else
+{
+  req.flash('message','Login First!');
+  res.render("login", { title: 'login',message: req.flash('message')});
+}});
 
 app.post("/forget", async(req, res) => {
   try
