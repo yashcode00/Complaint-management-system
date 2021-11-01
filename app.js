@@ -54,6 +54,18 @@ const transporter = nodemailer.createTransport({
   }
   });
 
+// middleware to check if new_password page is not ilegally accesed
+const isAuth=(req,res,next) =>{
+if(req.session.isAuth==true)
+{
+  next();
+}
+else{
+  req.flash('message','Unauthorized access!');
+  res.redirect('/login');
+}
+};
+
 app.get('/', (req, res) => {
   res.redirect('/login');
 });
@@ -65,7 +77,7 @@ app.get('/otppage', (req, res) => {
   res.render('otppage', { title: 'Verify',message: req.flash('message')});
 });
 
-app.get('/new_password', (req, res) => {
+app.get('/new_password',isAuth, (req, res) => {
   res.render('new_password', { title: 'New Password',message: req.flash('message')});
 });
 
@@ -161,6 +173,7 @@ app.post("/forget", async(req, res) => {
 app.post('/otppage', (req, res) => {
   if(req.body.OTP==req.cookies.otp){
     req.flash('message','Right OTP!');
+    req.session.isAuth=true;
     res.redirect('/new_password');
   }
   else{
