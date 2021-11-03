@@ -12,7 +12,7 @@
 <body>
     <div class="main-container container-fluid">
         <div class="row main-row">
-            <div class="col-12 col-md-6 left-div container-fluid">
+            <div class="col-12 col-md-7 left-div container-fluid">
                 <form method="post" id="signin" class="visible" action="/login">
                     <h1 class="signin">Sign in</h1>
                     <%if(message.length>0 && message!='undefined') {%>
@@ -21,17 +21,18 @@
                     <input type="text" name="userid" placeholder="USER-ID" class="form-control">
                     <br>
                     <input type="password" name="password" placeholder="Password" class="form-control">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn glow-on-hover">Submit</button>
+                    <a href="forget">Forgot your password?</a>
                 </form>
                 <br>
-                <a href="forget">Forgot your password?</a>
+                
             </div>
-            <div class="col-12 col-md-6 right-div">
+            <div class="col-12 col-md-5 right-div">
                 <div class="register">
                     <h1>Hello!</h1>
                     <h4>Enter your details and Register with us.</h4>
                     <a href="register">
-                    <button class="sign-btn btn">Sign Up!</button></a>
+                    <button class="sign-btn btn glow-on-hover">Sign Up!</button></a>
                 </div>
             </div>
         </div>
@@ -44,3 +45,4 @@
 
 </body>
 </html>
+

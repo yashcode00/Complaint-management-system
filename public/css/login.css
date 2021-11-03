@@ -4,19 +4,23 @@ body{
     justify-content: center;
     align-items: center;
 	/*background image*/
-	background-image: url('../images/bg_image.jpg');
+	background-image: url(../images/login-bg.jpg);
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
 }
+
+
 .main-container,.main-row{
     border-radius: 25px;
     position: relative;
     top: 5vh;
-    width: 80vw;
+    width: 70vw;
+    /* justify-content: center; */
+    
 }
 .main-row{
-    box-shadow: 4px 4px 10px 2px grey;
+    box-shadow: 10px 10px 20px rgb(0, 0, 0);
 }
 .left-div,.right-div{
     height: 80vh;
@@ -24,18 +28,36 @@ body{
     flex-direction: column;
     align-items: center;
     padding-top: 5%;
-    /* justify-content: center; */
+    box-shadow: 1px 1px 5px 2px rgb(0, 0, 0) inset;
+    /* background: rgba(255, 255, 255, .7); */
 }
 .left-div{
-    background-color: greenyellow;
+    /* background-color: greenyellow; */
     border-radius: 25px 0 0 25px;
     padding-top: 10%;
+    /* background: linear-gradient(to right, #8d2de2a4, #4b00e0a4); */
+    -webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(15px);
     /* margin-bottom: 20px; */
+    /* background: linear-gradient(rgba(255, 255, 255, 0.5),black); */
+    background-color: rgba(255, 255, 255, 0.4);
 }
 .right-div{
-    background-color: rgb(233, 25, 77);
+    background: 
+        linear-gradient(#b53f3fbd, #3d448d99),
+        url('../images/login-right.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
     border-radius: 0 25px 25px 0;
     color: white;
+    /* justify-content: center; */
+}
+.right-div > div{
+    top: 25%;
+    position: relative;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 .left-div form{
     width: 100%;
@@ -54,15 +76,62 @@ body{
     height: 50px;
     border-radius: 10px;
 }
+.left-div button{
+    background: linear-gradient(
+        45deg, #ca2f40, #6393ce);
+        font-weight: 700;
+}
+.left-div button:hover{
+    /* background-color: transparent; */
+    font-size: 1.3rem;
+    transition: 0.3s;
+    font-weight: 700;
+    background-color: rebeccapurple;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+}
 button{
-    width:150px;
-    height:50px;
+    margin-top: 10px;
+    width:200px;
+    height:60px;
     font-size: 1.2rem;
     border-radius: 25px;
+    min-width: 130px;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase; 
+    padding: 15px;
+    margin: 30px 25px;
+    font-weight: 600;
+    color: white;
+    transition: 0.5s;
+}
+.left-div a{
+    text-decoration: none;
+    color: rgb(20, 34, 221);
+    text-shadow: 0 0 white;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.left-div a:hover{
+    font-size: 1.2rem;
+    transition: 0.5s;
+    color: rgb(6, 135, 209);
+    font-weight: 600;
+    padding-bottom: 1px;
+    border-bottom: 3px solid rgb(6, 135, 209);
+
+}
+.form-control:focus{
+    color: black;
+    font-weight: 500;
 }
 .signin{
     font-weight: 750;
     font-size: 2.5rem;
+    text-shadow: 1px 1px white;
+    transform: translateY(-15px);
 }
 #forgotpass{
     font-size: 1rem;
@@ -75,12 +144,13 @@ button{
     font-weight: 700;
 }
 .right-div button:hover{
-    color: rgb(233, 25, 77);
+    color: white;
     font-weight: 400;
     background-color: white;
     transition: 0.3s;
     font-weight: 700;
     font-size: 1.3rem;
+    text-shadow: 2px 2px 2px black;
 }
 @media (max-width:768px) {
     .left-div,.right-div{
@@ -92,10 +162,65 @@ button{
         box-shadow: none;
     }
 }
-/* .hidden{
-	display: none !important;} */
+.register {
+    text-shadow: 2px 2px 2px black;
+    text-align: center;
+}
 
-/* .violet{
-	background-color: blueviolet; */
-	
-/* } */
+.glow-on-hover {
+    /* width: 220px;
+    height: 50px; */
+    border: none;
+    outline: none;
+    color: #fff;
+    background: black;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(15px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: white
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}

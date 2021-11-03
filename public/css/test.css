@@ -17,9 +17,12 @@ body{
     position: relative;
     top: 5vh;
     width: 80vw;
-    background-color: white;
+    color: white;
+    background: linear-gradient(
+    45deg, #d02f31, #2893bca3);
+    text-shadow: 1px 1px 6px black;
     padding: 10px;
-    box-shadow: 0px 0px 5px 2px gray ;
+    box-shadow: 0px 0px 5px 1px black ;
 }
 .message{
     background-color: rgb(212, 235, 235);

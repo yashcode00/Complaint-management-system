@@ -1,5 +1,6 @@
 :root{
-    --maincolor : rgba(183, 0, 255, 0.815);
+    --maincolor : rgba(29, 74, 197, 0.705);
+    --btncolor: rgb(66 58 183);
 }
 body{
     display: flex;
@@ -11,7 +12,7 @@ body{
         var(--maincolor), 
         var(--maincolor)
         ),
-        url(https://i.pinimg.com/originals/0c/96/b1/0c96b19dc89ffdaa7ff737cfc04a095f.png);
+        url(../images/IrF.gif);
 }
 .main-container,.main-row{
     border-radius: 25px;
@@ -88,11 +89,13 @@ body{
     background-color: rgb(231, 227, 227);
 }
 .right-div button,.left-div button{
-    width: 70%;
+    /* width: 70%; */
     border-radius: 25px;
-    margin: 2px;
+    margin:2px;
     margin-top: 10px;
-    background-color: var(--maincolor);
+    background-color: var(--btncolor);
+    padding : 10px 50px;
+
 }
 
 .buttons-div{
@@ -100,6 +103,7 @@ body{
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-top:20px;
 }
 .right-div select{
     width: 80%;
