@@ -1,10 +1,12 @@
 # Complaint-management-system
-This is an management application for students to register and login and raise complaints against their problem. The portal contains a form to request necessary details of the complaints and  directs to concerned authorities.
+
+This is an management application for students to register and login and raise complaints against their problem. The portal contains a form to request necessary details of the complaints and directs to concerned authorities.
 
 # Team Members (CS207- Applied Database Practicum)
-1. Yash Sharma 
-2. Saransh Bansal 
-3. Abhay Gupta 
+
+1. Yash Sharma
+2. Saransh Bansal
+3. Abhay Gupta
 4. Aryansh Singla
 5. Aayushmaan Jha
 6. Vastav Bansal
@@ -12,39 +14,48 @@ This is an management application for students to register and login and raise c
 
 # Steps to run this Project Locally
 
-**Step 1**:   Clone this repository locally using gitbash. Open gitbash on your PC and type the following command.
+**Step 1**: Clone this repository locally using gitbash. Open gitbash on your PC and type the following command.
+
 ```
 git clone git@github.com:yashcode00/Complaint-management-system.git
 ```
-**Step 2 :**  Change the branch to node_new using the following command:
+
+**Step 2 :** Change the branch to node_new using the following command:
+
 ```
 git checkout node_new
 ```
-**Step 3** :  Open this cloned folder having name: "Complaint-management-system" using Visual Studio Code (preferably for best experience) 
 
-**Step 4** :  Run a new terminal in VS Code and run the following command.This will install all required modules for running this project. Please ensure that you have Nodejs installed on your pc. 
-```
+**Step 3** : Open this cloned folder having name: "Complaint-management-system" using Visual Studio Code (preferably for best experience)
+
+**Step 4** : Run a new terminal in VS Code and run the following command.This will install all required modules for running this project. Please ensure that you have Nodejs installed on your pc.
+
+```JavaScript
 npm install
 ```
 
-**Step 5**:   Now, run the follwing to install nodemon globally.
-```
+**Step 5**: Now, run the follwing to install nodemon globally.
+
+```JavaScript
 npm install -g nodemon
 ```
 
-**Step 6** :  Now, finally to run this website locally on your local host run the following command.
-```
+**Step 6** : Now, finally to run this website locally on your local host run the following command.
+
+```JavaScript
 nodemon app
 ```
 
-**Step 7**:   Finally, to open this hosted website, type following url in chrome browser (preferred for best experience).
+**Step 7**: Finally, to open this hosted website, type following url in chrome browser (preferred for best experience).
+
 ```
 localhost:3000
 ```
 
-**Step 8**:   This way you will be directed to the login page of this comaplint-management-website and hence we succefully executed this project :)
+**Step 8**: This way you will be directed to the login page of this comaplint-management-website and hence we succefully executed this project :)
 
 # Possible Error
+
 A possible error may occur if you are running nodejs for first time on yor PC.
 
 For those who are not aware of how to solve this error using Windows PowerShell
@@ -52,10 +63,11 @@ For those who are not aware of how to solve this error using Windows PowerShell
 Open PowerShell (Run As Administrator)
 
 Check the current execution policy using this command
+
 ```
    Get-ExecutionPolicy
 ```
-  
+
 **You should get 'Restricted'**
 
 Run this command to make it 'Unrestricted'
