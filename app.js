@@ -210,7 +210,17 @@ app.post('/new_password', async(req, res) => {
   }
 });
 
-
+function checkpass(pass){
+  var lowerCaseLetters = /[a-z]/g;
+  var upperCaseLetters = /[A-Z]/g;
+  var numbers = /[0-9]/g;
+  if(pass.length>=8&&pass.match(lowerCaseLetters)&&pass.match(upperCaseLetters)&&pass.match(numbers)){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
 
 // registration page getting setails and storing to server via post method
 app.post('/register', async(req, res) => {
@@ -218,7 +228,7 @@ app.post('/register', async(req, res) => {
 try {
   const password1=req.body.password1;
   const password2=req.body.password2;
-  if (password1 ===password2){
+  if (password1 ===password2 && checkpass(password1)){
     // generate salt to hash password
     const salt = await bcrypt.genSalt(10);
     const pass=await bcrypt.hash(req.body.password1, salt);
@@ -249,6 +259,10 @@ try {
     }
   });
 }
+  else if(!checkpass(password1)){
+    req.flash('message',"Passwords is too weak!");
+    res.redirect('/register');
+  }
   else if(password1 !=password2){
     req.flash('message',"Passwords do not match!");
     res.redirect('/register');
