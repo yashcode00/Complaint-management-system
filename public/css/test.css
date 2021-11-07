@@ -7,24 +7,64 @@ body{
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
+    font-family: 'Montserrat';
 }
 .main-container{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     border-radius: 25px;
     position: relative;
-    top: 5vh;
-    width: 80vw;
-    color: white;
-    background: linear-gradient(
-    45deg, #d02f31, #2893bca3);
-    text-shadow: 1px 1px 6px black;
+    top: 15vh;
+    width: 40vw;
+    height: 70vh;
+    color: black;
+    text-shadow: 1px 1px 6px #535353;
     padding: 10px;
-    box-shadow: 0px 0px 5px 1px black ;
+    box-shadow: 0px 0px 5px 1px rgb(49, 49, 49) ;
+    background: linear-gradient( 45deg, #dd9f9f, #81dcffa3);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+    text-align: center;
 }
 .message{
-    background-color: rgb(212, 235, 235);
+    background-color: rgb(212, 235, 235); 
     margin-top: 50px;
+}
+.main-container img{
+    width: 250px;
+    height: 250px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    max-width: 90%;
+    transform: translateY(-20px);
+}
+.btn{
+    display: block;
+    background: linear-gradient(
+    45deg, #e05b51, #464f51);
+    margin-top: 17px;
+    width: 150px;
+    height: 50px;
+    border: 2px solid #413a3afc;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.btn:hover{
+    border-color:red;
+    font-size: 1.3rem;
+    transition: 0.3s;
+    letter-spacing: 1px;
+}
+form input{
+    box-shadow: 0 0 5px 1px rgb(138, 128, 128);
+    display: inline-block;
+    width: fit-content;
+}
+#otp-input{
+    width: fit-content;
 }

@@ -14,9 +14,10 @@
         <div class='alert alert-danger'><%= message%></div>
         <%}%>
     <div class="main-container container-fluid">
+            <img src="./images/forgetpass.png" alt="">
             <form action="/otppage" method="post">
-            <h1>Enter The OTP recieved at your registered E-mail ID</h1>
-            <input type="text" name="OTP" id="otp-input" placeholder="OTP">  
+            <h2>Enter The OTP recieved at your registered E-mail ID</h2>
+            <input type="text" name="OTP" class="form-control" id="otp-input" placeholder="OTP">  
             <button type="submit" class="btn btn-primary">Submit</button>
             </form> 
     </div>
