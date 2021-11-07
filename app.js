@@ -329,6 +329,16 @@ try {
   );
   console.log(find_user.username);
   console.log('Complaint registered succesfully!');
+  transporter.sendMail({
+    from:fromMail,
+    to:"b20132@students.iitmandi.ac.in",
+    subject: "New complaint from "+find_user.rollno,
+    text: "Complaint from: " + complaint.username + "\nRoll-no :" + complaint.rollno + "\nComplaint-Category is: " + complaint.complaintcategory + "\nMessage is: " + complaint.message
+    }, (error, response) => {
+  if (error) {
+      console.log(error);
+  }
+    });
   complaint.save().then(result => {
     req.flash('message','Complaint registered succesfully!');
     res.redirect('/complaint_register');
