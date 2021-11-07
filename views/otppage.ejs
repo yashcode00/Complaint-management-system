@@ -10,13 +10,13 @@
     <link rel="icon"  type="image/png"  href="images/favicon.png" />
 </head>
 <body>
-    <%if(message.length>0 && message!='undefined') {%>
-        <div class='alert alert-danger'><%= message%></div>
-        <%}%>
-    <div class="main-container container-fluid">
+    <div class="main-container container-fluid" style="height: 75vh;">
             <img src="./images/forgetpass.png" alt="">
             <form action="/otppage" method="post">
             <h2>Enter The OTP recieved at your registered E-mail ID</h2>
+            <%if(message.length>0 && message!='undefined') {%>
+                <div class='alert alert-danger'><%= message%></div>
+                <%}%>
             <input type="text" name="OTP" class="form-control" id="otp-input" placeholder="OTP">  
             <button type="submit" class="btn btn-primary">Submit</button>
             </form> 
