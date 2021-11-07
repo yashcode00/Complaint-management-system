@@ -11,13 +11,13 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 </head>
 <body>
-    <%if(message.length>0 && message!='undefined') {%>
-        <div class='alert alert-danger'><%= message%></div>
-        <%}%>
     <div class="main-container container-fluid">
             <img src="./images/forgetpass.png" alt="">
             <form action="/forget" method="post">
             <h1>Enter Your Roll No</h1>
+            <%if(message.length>0 && message!='undefined') {%>
+                <div class='alert alert-danger'><%= message%></div>
+                <%}%>
             <input type="text" class="form-control" placeholder="Roll"  name="rollno"> 
             <button type="submit" class="btn btn-primary">Submit</button>
             </form> 
