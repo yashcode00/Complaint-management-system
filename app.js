@@ -347,6 +347,7 @@ try {
     from:fromMail,
     to:"b20132@students.iitmandi.ac.in",
     subject: "New complaint from "+find_user.rollno,
+    cc: find_user.email,
     text: "Complaint Registered from: " + complaint.username + "\nRoll-no :" + complaint.rollno + "\nComplaint-Category is: " + complaint.complaintcategory + "\nMessage is: " + complaint.message + "\n\nThanks and Regards\nComplaint Management Authority\nJohn Wick (Ex-Communicado)"
     }, (error, response) => {
   if (error) {
