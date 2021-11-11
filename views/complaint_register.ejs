@@ -1,52 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>System | <%= title %></title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/complaint_register.css">
-</head>
-<body>
-        <div class="main-container container-fluid">
-            <div class="row main-row">
-                <h1 class="name-heading">Hello ! <%= user %></h1>
-                <div class="col-12 col-md-6 left-div container-fluid">
-                    <div class="image">
-                        <img src="images/haha.png" alt="">
-                    </div>
-                    <div class="buttons-div">
-                        <form action="\past_complaints" >
-                            <button class="btn btn-primary">Past Complaints</button>
-                         </form>
-                        <form action="\logout">
-                            <button class="btn btn-primary">Logout</button>
-                         </form>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 right-div">
-                    <%if(message.length>0 && message!='undefined') {%>
-                    <div class='alert alert-success'><%= message%></div>
-                    <%}%>
-                    <form action="\complaint_register" method='post' style="color: black;">
-                        <h2>Register a Complaint</h2>
-                        <input type="text" name="rollno" placeholder="Roll-no" class="form-control" required>
-                        <div class="options">
-                            <label for="category">Type :  </label>
-                            <select id="category" name="complaintcategory" class="form-select size-3">
-                                <option value="Bullying">Bullying</option>
-                                <option value="Hostel">Hostel Realted Issues</option>
-                                <option value="Harrasment">Harrasment</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                        <textarea name="message" placeholder="Description" class="form-control" required id="description"></textarea>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
-            </div>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/complaint_register.css" />
+  </head>
+  <body>
+    <div class="main-container container-fluid">
+      <div class="row main-row">
+        <h1 class="name-heading">Hello <%= user %> !</h1>
+        <div class="col-12 col-md-6 left-div container-fluid">
+          <div class="image">
+            <img src="images/haha.png" alt="" />
+          </div>
+          <div class="buttons-div">
+            <form action="\past_complaints">
+              <button class="btn btn-primary">Past Complaints</button>
+            </form>
+            <form action="\logout">
+              <button class="btn btn-primary">Logout</button>
+            </form>
+          </div>
         </div>
-        <%- include("./partials/footer.ejs") %>
-</body>
+        <div class="col-12 col-md-6 right-div">
+          <%if(message.length>0 && message!='undefined') {%>
+          <div class="alert alert-success"><%= message%></div>
+          <%}%>
+          <form action="\complaint_register" method="post" style="color: black">
+            <h2>Register a Complaint</h2>
+            <input
+              type="text"
+              name="rollno"
+              placeholder="Roll-no"
+              class="form-control"
+              required
+            />
+            <div class="options">
+              <label for="category">Type : </label>
+              <select
+                id="category"
+                name="complaintcategory"
+                class="form-select size-3"
+              >
+                <option value="Bullying">Bullying</option>
+                <option value="Hostel">Hostel Realted Issues</option>
+                <option value="Harrasment">Harrasment</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <textarea
+              name="message"
+              placeholder="Description"
+              class="form-control"
+              required
+              id="description"
+            ></textarea>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <%- include("./partials/footer.ejs") %>
+  </body>
 </html>
