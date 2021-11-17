@@ -40,3 +40,7 @@ body{
 #box2 ul li {
  font-weight: 600;
 } 
+#reset-btn button{
+  display: inline;
+  transform: translateY(-50px);
+}
