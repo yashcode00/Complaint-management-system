@@ -41,13 +41,13 @@
                       <div class="row">
                         <div class="col-md-6 mb-4">
                           <div class="form-outline">
-                            <input type="text" id="form3Example1m" class="form-control form-control-lg" name="firstname"/>
+                            <input type="text" id="form3Example1m" class="form-control form-control-lg" name="firstname" value= "<%= form.firstname %>"  />
                             <label class="form-label" for="form3Example1m">First name</label>
                           </div>
                         </div>
                         <div class="col-md-6 mb-4">
                           <div class="form-outline">
-                            <input type="text" id="form3Example1n" class="form-control form-control-lg" name="lastname"/>
+                            <input type="text" id="form3Example1n" class="form-control form-control-lg" name="lastname" value="<%= form.lastname %>"/>
                             <label class="form-label" for="form3Example1n">Last name</label>
                           </div>
                         </div>
@@ -56,7 +56,7 @@
                       <div class="row">
                         <div class="col-md-6 mb-4">
                           <div class="form-outline">
-                            <input type="text" id="form3Example1m1" class="form-control form-control-lg" name="fathersname" />
+                            <input type="text" id="form3Example1m1" class="form-control form-control-lg" name="fathersname" value="<%= form.fathersname %>" />
                             <label class="form-label" for="form3Example1m1">Father's name</label>
                           </div>
                         </div>
@@ -96,7 +96,7 @@
                         </div>
                         <div class="col-md-6 mb-4">
                           <div class="form-outline">
-                            <input type="text" id="form3Example1n1" name="state" class="form-control form-control-lg" />
+                            <input type="text" id="form3Example1n1" name="state" class="form-control form-control-lg" value="<%= form.state %>" />
                             <label class="form-label" for="form3Example1n1">State</label>
                           </div>
                         </div>
@@ -124,28 +124,31 @@
                       <div class="row">
                         <div class="col-md-6 mb-4">
                           <div class="form-outline">
-                            <input type="date" id="form3Example1m1" class="form-control form-control-lg" name="dob" />
+                            <input type="date" id="form3Example1m1" class="form-control form-control-lg" name="dob" value="<%= form.dob %>" />
                             <label class="form-label" for="form3Example1m1">DOB</label>
                           </div>
                         </div>
                         <div class="col-md-6 mb-4">
                           <div class="form-outline">
-                            <input type="number" id="form3Example1n1" class="form-control form-control-lg" name="mobile" required/>
+                            <input type="number" id="form3Example1n1" class="form-control form-control-lg" name="mobile" value="<%= form.mobile %>" required/>
                             <label class="form-label" for="form3Example1n1">Mobile</label>
                           </div>
                         </div>
                       </div>
       
                       <div class="form-outline mb-4">
-                        <input type="email" id="form3Example97" class="form-control form-control-lg" name="email" />
+                        <input type="email" id="form3Example97" class="form-control form-control-lg" name="email" value="<%= form.email %>" />
                         <label class="form-label" for="form3Example97">Email ID</label>
                       </div>
-      
                       <div class="d-flex justify-content-end pt-3">
-                        <button type="reset"  class="btn btn-light btn-lg">Reset all</button>
                         <button type="submit" class="btn btn-warning btn-lg ms-2" name="reg_user">Submit form</button>
                       </div>
                     </form>
+                    <div class="buttons-div">
+                      <a href="register">
+                        <button class="btn btn-light btn-lg">Reset all</button>
+                      </a>
+                    </div>
       
                     </div>
                   </div>

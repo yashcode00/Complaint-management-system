@@ -70,6 +70,19 @@ app.get('/', (req, res) => {
   res.redirect('/login');
 });
 app.get('/login', (req, res) => {
+  var arr=[
+    {
+      firstname: "",
+      lastname: "",
+      fathersname: "",
+      email: "",
+      mobile: "",
+      dob: "",
+      state: "",
+    }
+  ];
+  req.flash('form',arr);
+  req.flash('cache','true');
   res.render('login', { title: 'Login',message: req.flash('message')});
 });
 
@@ -94,7 +107,21 @@ app.get('/logout', (req, res) => {
 });
 
 app.get('/register', (req, res) => {
-  res.render('register', { title: 'Sign up' ,message: req.flash('message')});
+  if(req.flash("cache")!='true'){
+    var arr=[
+      {
+        firstname: "",
+        lastname: "",
+        fathersname: "",
+        email: "",
+        mobile: "",
+        dob: "",
+        state: "",
+      }
+    ];
+    req.flash('form',arr);
+  }
+  res.render('register', { title: 'Sign up' ,message: req.flash('message'),form: req.flash('form')[0]});
 });
 
 app.get('/forget', (req, res) => {
@@ -254,16 +281,19 @@ try {
     if (err.code === 11000) {
       // duplicate key
       console.log("Here");
-      req.flash('message','Username/Rollno already in use');
+      req.flash('form',req.body);
+      req.flash('message','Username/Rollno already in use!');
       res.redirect('/register');
     }
   });
 }
   else if(!checkpass(password1)){
+    req.flash('form',req.body);
     req.flash('message',"Passwords is too weak!");
     res.redirect('/register');
   }
   else if(password1 !=password2){
+    req.flash('form',req.body);
     req.flash('message',"Passwords do not match!");
     res.redirect('/register');
   }
