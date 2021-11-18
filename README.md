@@ -3,7 +3,7 @@
 This is an management application for students to register and login and raise complaints against their problem. The portal contains a form to request necessary details of the complaints and directs to concerned authorities.
 
 
-**_THIS SITE HAS BEEN HOSTED USING HEROKUAPP AND CAN BE ACCESSED FROM THE LINK GIVEN IN THE ABOUT SECTION OF THIS REPOSITORY._**
+>**_THIS SITE HAS BEEN HOSTED USING HEROKUAPP AND CAN BE ACCESSED FROM THE LINK GIVEN IN THE ABOUT SECTION OF THIS REPOSITORY._**
 
 
 # Steps to run this Project Locally
@@ -92,7 +92,8 @@ Now, it will work perfectly. :)
  _Team Members (CS207- Applied Database Practicum)_
  
 
->_1. Yash Sharma
+>_1. Yash Sharma_
+
 >_2. Saransh Bansal_
 
 _3. Abhay Gupta_
