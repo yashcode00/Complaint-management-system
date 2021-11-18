@@ -2,15 +2,9 @@
 
 This is an management application for students to register and login and raise complaints against their problem. The portal contains a form to request necessary details of the complaints and directs to concerned authorities.
 
-# Team Members (CS207- Applied Database Practicum)
 
-1. Yash Sharma
-2. Saransh Bansal
-3. Abhay Gupta
-4. Aryansh Singla
-5. Aayushmaan Jha
-6. Vastav Bansal
-7. Vishwas Garg
+# THIS SITE HAS BEEN HOSTED USING HEROKUAPP AND CAN BE ACCESSED FROM THE LINK GIVEN ON ABOUT SECTION OF THIS REPOSITORY.
+
 
 # Steps to run this Project Locally
 
@@ -90,4 +84,18 @@ Now try to run nodemon on your project
     nodemon app
 ```
 
+
 Now, it will work perfectly. :)
+
+-------------------------x--------x----x-----x-----x-----x-----x------x-----x------x-----x------x-----x-----x-------x------x-------------------------------------
+
+# Team Members (CS207- Applied Database Practicum)
+
+1. Yash Sharma
+2. Saransh Bansal
+3. Abhay Gupta
+4. Aryansh Singla
+5. Aayushmaan Jha
+6. Vastav Bansal
+7. Vishwas Garg
+
