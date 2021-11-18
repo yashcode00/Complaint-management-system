@@ -92,7 +92,7 @@ _Thanks and Regards_
 _John Wick_
 
 
-####  _Team Members (CS207- Applied Database Practicum)_
+>**_Team Members (CS207- Applied Database Practicum)_**
 
 >_1. Yash Sharma_
 
