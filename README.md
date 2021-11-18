@@ -14,10 +14,10 @@ This is an management application for students to register and login and raise c
 git clone git@github.com:yashcode00/Complaint-management-system.git
 ```
 
-**Step 2 :** Change the branch to node_new using the following command:
+**Step 2 :** Change the branch to main (optional if not on main already) using the following command:
 
 ```
-git checkout node_new
+git checkout main
 ```
 
 **Step 3** : Open this cloned folder having name: "Complaint-management-system" using Visual Studio Code (preferably for best experience)
