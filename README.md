@@ -87,10 +87,11 @@ Now try to run nodemon on your project
 
 Now, it will work perfectly. :)
 
-<<<<<<<<<<<<<<------------------->>>>>>>>>>>>>>>>
+_Thanks and Regards_
+_John Wick_
 
- _Team Members (CS207- Applied Database Practicum)_
- 
+
+######  _Team Members (CS207- Applied Database Practicum)_
 
 >_1. Yash Sharma_
 
