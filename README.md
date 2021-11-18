@@ -3,7 +3,7 @@
 This is an management application for students to register and login and raise complaints against their problem. The portal contains a form to request necessary details of the complaints and directs to concerned authorities.
 
 
-# THIS SITE HAS BEEN HOSTED USING HEROKUAPP AND CAN BE ACCESSED FROM THE LINK GIVEN ON ABOUT SECTION OF THIS REPOSITORY.
+_THIS SITE HAS BEEN HOSTED USING HEROKUAPP AND CAN BE ACCESSED FROM THE LINK GIVEN ON ABOUT SECTION OF THIS REPOSITORY.
 
 
 # Steps to run this Project Locally
