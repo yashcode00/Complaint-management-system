@@ -89,13 +89,13 @@ Now, it will work perfectly. :)
 
 <<<<<<<<<<<<<<------------------->>>>>>>>>>>>>>>>
 
-# Team Members (CS207- Applied Database Practicum)
+ _Team Members (CS207- Applied Database Practicum)_
 
-1. Yash Sharma
-2. Saransh Bansal
-3. Abhay Gupta
-4. Aryansh Singla
-5. Aayushmaan Jha
-6. Vastav Bansal
-7. Vishwas Garg
+_1. Yash Sharma_
+_2. Saransh Bansal_
+_3. Abhay Gupta_
+_4. Aryansh Singla_
+_5. Aayushmaan Jha_
+_6. Vastav Bansal_
+_7. Vishwas Garg_
 
